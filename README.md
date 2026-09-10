@@ -15,8 +15,7 @@ No hace falta nada más: no hay que instalar ni levantar ninguna base de datos.
 
 ---
 
-## Puesta en marcha
-
+## Ejecutar
 ```bash
 npm run setup
 npm run dev
