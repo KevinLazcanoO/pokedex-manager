@@ -345,27 +345,6 @@ las tablas entre casos, así que ninguno depende del anterior.
 
 ---
 
-## Estado y limitaciones conocidas
-
-- **De las funcionalidades bonus está hecha la de análisis inteligente.** Las de
-  visión (subir una imagen y reconocer el Pokémon) y MCP no se abordaron.
-- **El análisis con IA viene desactivado** y necesita que quien lo ejecute ponga
-  su propia clave. Es deliberado: este repositorio es público y no contiene
-  credenciales de nadie.
-- **Los límites de uso viven en memoria** del proceso, igual que la caché. Con
-  varias instancias en producción harían falta en un almacén compartido (Redis);
-  solo cambiaría la clase `LimitadorDeUso`.
-- **La caché de la PokéAPI vive en memoria del proceso** y se pierde al
-  reiniciar. Con varias instancias en producción el reemplazo natural sería
-  Redis, y solo cambiaría la clase `TtlCache`.
-- **No hay tests de frontend.** El tiempo se invirtió en cubrir bien el backend,
-  donde están las reglas de negocio. La interfaz se verificó manualmente en
-  navegador, incluyendo contraste medido y responsive a 375 px.
-- **La paginación de la colección no existe**: se muestran todas las entradas.
-  Es adecuado para una colección personal y evita complejidad innecesaria.
-
----
-
 ## Tecnologías
 
 **Backend:** Node.js · TypeScript · Express 5 · Prisma · SQLite · Zod · bcrypt ·
