@@ -1,0 +1,25 @@
+.pantalla {
+  display: grid;
+  place-items: center;
+  min-height: 60dvh;
+  padding: var(--espacio-6) var(--espacio-4);
+  text-align: center;
+}
+
+.codigo {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-acento-texto);
+}
+
+.titulo {
+  margin-top: var(--espacio-3);
+  font-size: 1.375rem;
+}
+
+.texto {
+  margin-top: var(--espacio-2);
+  margin-bottom: var(--espacio-5);
+  color: var(--color-texto-tenue);
+}

@@ -1,0 +1,67 @@
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  padding: var(--espacio-3) var(--espacio-5);
+  border: 1px solid transparent;
+  border-radius: var(--radio-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transicion), border-color var(--transicion),
+    transform var(--transicion);
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.boton:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.primario {
+  background-color: var(--color-primario);
+  color: var(--color-primario-contraste);
+}
+
+.primario:not(:disabled):hover {
+  background-color: var(--color-primario-fuerte);
+}
+
+.secundario {
+  background-color: var(--color-superficie);
+  border-color: var(--color-borde);
+  color: var(--color-texto);
+}
+
+.secundario:not(:disabled):hover {
+  border-color: var(--color-texto-tenue);
+}
+
+.fantasma {
+  background-color: transparent;
+  color: var(--color-texto-tenue);
+}
+
+.fantasma:not(:disabled):hover {
+  background-color: var(--color-superficie-tenue);
+  color: var(--color-texto);
+}
+
+.peligro {
+  background-color: transparent;
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.peligro:not(:disabled):hover {
+  background-color: var(--color-peligro-fondo);
+  border-color: var(--color-peligro-fondo);
+  color: var(--color-primario-contraste);
+}
+
+.anchoCompleto {
+  width: 100%;
+}

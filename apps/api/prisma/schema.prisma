@@ -1,0 +1,51 @@
+// Esquema de datos del PokéDex Manager.
+// SQLite para que el proyecto arranque sin instalar ni levantar nada.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  displayName  String
+  createdAt    DateTime @default(now())
+
+  // Si se borra el usuario, su colección se va con él.
+  entries CollectionEntry[]
+
+  @@map("users")
+}
+
+model CollectionEntry {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  pokemonId Int
+
+  // Copiados de la PokéAPI a propósito. Es desnormalizar, sí, pero así la
+  // colección se ve completa aunque la PokéAPI esté caída o lenta, y listarla no
+  // dispara una petición externa por cada tarjeta.
+  pokemonName   String
+  spriteUrl     String?
+  types         String // JSON: SQLite no tiene columnas de tipo array
+  baseStatTotal Int    @default(0)
+
+  nickname String?
+  notes    String?
+  favorite Boolean @default(false)
+  caughtAt DateTime @default(now())
+
+  // Un usuario no puede capturar dos veces la misma especie.
+  @@unique([userId, pokemonId])
+  // El listado siempre filtra por usuario y ordena por fecha.
+  @@index([userId, caughtAt])
+  @@map("collection_entries")
+}

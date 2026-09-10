@@ -1,0 +1,79 @@
+:root {
+  --gris-50: #f8fafc;
+  --gris-100: #f1f5f9;
+  --gris-200: #e2e8f0;
+  --gris-300: #cbd5e1;
+  --gris-500: #64748b;
+  --gris-600: #475569;
+  --gris-700: #334155;
+  --gris-800: #1e293b;
+  --gris-900: #0f172a;
+
+  --rojo-400: #f87171;
+  --rojo-600: #dc2626;
+  --rojo-700: #b91c1c;
+  --ambar-500: #f59e0b;
+  --ambar-700: #b45309;
+  --verde-400: #4ade80;
+  --verde-700: #15803d;
+
+  --color-fondo: var(--gris-100);
+  --color-superficie: #ffffff;
+  --color-superficie-tenue: var(--gris-50);
+  --color-borde: var(--gris-200);
+  --color-texto: var(--gris-900);
+
+  --color-texto-tenue: var(--gris-600);
+
+  --color-primario: var(--rojo-600);
+  --color-primario-fuerte: var(--rojo-700);
+  --color-primario-contraste: #ffffff;
+
+  --color-acento-texto: var(--rojo-600);
+  --color-error: var(--rojo-600);
+
+  --color-peligro-fondo: var(--rojo-600);
+
+  --color-exito: var(--verde-700);
+  --color-favorito: var(--ambar-700);
+
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+  --espacio-8: 3rem;
+
+  --radio-sm: 6px;
+  --radio-md: 10px;
+  --radio-lg: 16px;
+  --radio-completo: 999px;
+
+  --sombra-sm: 0 1px 2px rgb(15 23 42 / 8%);
+  --sombra-md: 0 4px 12px rgb(15 23 42 / 10%);
+  --sombra-lg: 0 12px 32px rgb(15 23 42 / 14%);
+
+  --ancho-contenido: 1120px;
+  --transicion: 150ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo: var(--gris-900);
+    --color-superficie: var(--gris-800);
+    --color-superficie-tenue: #172033;
+    --color-borde: #2b3a52;
+    --color-texto: var(--gris-100);
+    --color-texto-tenue: var(--gris-300);
+
+    --color-acento-texto: var(--rojo-400);
+    --color-error: var(--rojo-400);
+    --color-exito: var(--verde-400);
+    --color-favorito: var(--ambar-500);
+
+    --sombra-sm: 0 1px 2px rgb(0 0 0 / 40%);
+    --sombra-md: 0 4px 12px rgb(0 0 0 / 45%);
+    --sombra-lg: 0 12px 32px rgb(0 0 0 / 50%);
+  }
+}

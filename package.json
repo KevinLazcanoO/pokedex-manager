@@ -1,0 +1,48 @@
+{
+  "name": "pokedex-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicacion web full-stack para gestionar una coleccion personal de Pokemon",
+  "author": "Daniel Lazcano",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "setup": "npm install && npm run setup:env && npm run build:shared && npm run db:push",
+    "setup:env": "node scripts/setup-env.mjs",
+    "dev": "npm run build:shared && concurrently --names api,web --prefix-colors blue,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev --workspace @pokedex/api",
+    "dev:web": "npm run dev --workspace @pokedex/web",
+    "build": "npm run build:shared && npm run build --workspace @pokedex/api && npm run build --workspace @pokedex/web",
+    "build:shared": "npm run build --workspace @pokedex/shared",
+    "start": "npm run start --workspace @pokedex/api",
+    "test": "npm run test --workspace @pokedex/api",
+    "lint": "eslint .",
+    "typecheck": "npm run build:shared && tsc --build --force apps/api && tsc --noEmit -p apps/api/tsconfig.test.json && tsc --noEmit -p apps/web/tsconfig.json",
+    "db:push": "npm run db:push --workspace @pokedex/api",
+    "db:studio": "npm run db:studio --workspace @pokedex/api"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "globals": "^16.4.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  },
+  "allowScripts": {
+    "@prisma/client": true,
+    "@prisma/engines": true,
+    "esbuild": true,
+    "prisma": true,
+    "fsevents": true
+  }
+}

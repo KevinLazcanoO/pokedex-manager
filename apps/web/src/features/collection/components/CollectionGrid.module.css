@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  gap: var(--espacio-4);
+
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

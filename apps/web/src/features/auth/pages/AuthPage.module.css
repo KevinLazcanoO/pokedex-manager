@@ -1,0 +1,73 @@
+.pantalla {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: var(--espacio-5) var(--espacio-4);
+
+  background:
+    radial-gradient(60rem 30rem at 50% -10%, color-mix(in srgb, var(--color-primario) 12%, transparent), transparent),
+    var(--color-fondo);
+}
+
+.tarjeta {
+  width: 100%;
+  max-width: 26rem;
+  padding: var(--espacio-6);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-lg);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacio-2);
+  margin-bottom: var(--espacio-5);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo {
+  color: var(--color-primario);
+}
+
+.titulo {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.subtitulo {
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  margin-top: var(--espacio-5);
+}
+
+.pie {
+  margin-top: var(--espacio-5);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.enlace {
+  color: var(--color-acento-texto);
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .tarjeta {
+    padding: var(--espacio-5) var(--espacio-4);
+    box-shadow: var(--sombra-md);
+  }
+}

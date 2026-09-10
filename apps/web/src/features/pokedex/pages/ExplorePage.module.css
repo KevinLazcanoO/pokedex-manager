@@ -1,0 +1,27 @@
+.encabezado {
+  margin-bottom: var(--espacio-5);
+}
+
+.titulo {
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitulo {
+  margin-top: var(--espacio-1);
+  color: var(--color-texto-tenue);
+}
+
+.resumen {
+  margin-bottom: var(--espacio-4);
+  color: var(--color-texto-tenue);
+
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+.actualizando {
+  opacity: 0.55;
+  transition: opacity var(--transicion);
+}

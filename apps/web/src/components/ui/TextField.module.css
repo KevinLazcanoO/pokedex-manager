@@ -1,0 +1,41 @@
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.etiqueta {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.entrada {
+  width: 100%;
+  padding: var(--espacio-3);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  transition: border-color var(--transicion);
+}
+
+.entrada::placeholder {
+  color: var(--color-texto-tenue);
+}
+
+.entrada:hover:not(:disabled) {
+  border-color: var(--color-texto-tenue);
+}
+
+.conError {
+  border-color: var(--color-error);
+}
+
+.mensajeError {
+  font-size: 0.8125rem;
+  color: var(--color-error);
+}
+
+.ayuda {
+  font-size: 0.8125rem;
+  color: var(--color-texto-tenue);
+}

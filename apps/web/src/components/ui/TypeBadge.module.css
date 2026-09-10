@@ -1,0 +1,42 @@
+.insignia {
+  --tipo: var(--gris-500);
+  --tipo-mezcla: 45%;
+
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--espacio-2);
+  border: 1px solid color-mix(in srgb, var(--tipo) 45%, transparent);
+  border-radius: var(--radio-completo);
+  background-color: color-mix(in srgb, var(--tipo) 16%, transparent);
+  color: color-mix(in srgb, var(--tipo) var(--tipo-mezcla), var(--color-texto));
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.insignia[data-tipo='normal'] { --tipo: #9099a1; }
+.insignia[data-tipo='fire'] { --tipo: #ff9d55; }
+.insignia[data-tipo='water'] { --tipo: #4d90d5; }
+.insignia[data-tipo='electric'] { --tipo: #f4d23c; }
+.insignia[data-tipo='grass'] { --tipo: #63bc5a; }
+.insignia[data-tipo='ice'] { --tipo: #73cec0; }
+.insignia[data-tipo='fighting'] { --tipo: #ce4069; }
+.insignia[data-tipo='poison'] { --tipo: #ab6ac8; }
+.insignia[data-tipo='ground'] { --tipo: #d97845; }
+.insignia[data-tipo='flying'] { --tipo: #8fa9de; }
+.insignia[data-tipo='psychic'] { --tipo: #f97176; }
+.insignia[data-tipo='bug'] { --tipo: #90c12c; }
+.insignia[data-tipo='rock'] { --tipo: #c7b78b; }
+.insignia[data-tipo='ghost'] { --tipo: #5269ad; }
+.insignia[data-tipo='dragon'] { --tipo: #0b6dc3; }
+.insignia[data-tipo='dark'] { --tipo: #5a5465; }
+.insignia[data-tipo='steel'] { --tipo: #5a8ea2; }
+.insignia[data-tipo='fairy'] { --tipo: #ec8fe6; }
+
+@media (prefers-color-scheme: dark) {
+  .insignia {
+    --tipo-mezcla: 55%;
+  }
+}

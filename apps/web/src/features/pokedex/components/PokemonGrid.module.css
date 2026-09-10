@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  gap: var(--espacio-4);
+
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+}
+
+@media (max-width: 420px) {
+  .grid {
+    gap: var(--espacio-3);
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  }
+}

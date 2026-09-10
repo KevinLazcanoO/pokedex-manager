@@ -1,0 +1,157 @@
+.panel {
+  margin-top: var(--espacio-6);
+  padding: var(--espacio-5);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-sm);
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-size: 1.125rem;
+}
+
+.icono {
+  color: var(--color-primario);
+}
+
+.introduccion {
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+}
+
+.cupo {
+  margin-top: var(--espacio-2);
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.resultado {
+  margin-top: var(--espacio-5);
+  display: grid;
+  gap: var(--espacio-5);
+}
+
+.resumen {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.columnas {
+  display: grid;
+  gap: var(--espacio-5);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.tituloSeccion {
+  margin-bottom: var(--espacio-3);
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lista {
+  display: grid;
+  gap: var(--espacio-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.elemento {
+  display: flex;
+  gap: var(--espacio-2);
+  align-items: flex-start;
+  font-size: 0.9375rem;
+}
+
+.marcaFuerte {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-exito);
+}
+
+.marcaHueco {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-favorito);
+}
+
+.recomendaciones {
+  display: grid;
+  gap: var(--espacio-3);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.recomendacion {
+  padding: var(--espacio-3) var(--espacio-4);
+  background-color: var(--color-superficie-tenue);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+}
+
+.nombreRecomendado {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-weight: 700;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.nombreRecomendado:hover {
+  color: var(--color-acento-texto);
+}
+
+.motivo {
+  margin-top: var(--espacio-1);
+  color: var(--color-texto-tenue);
+  font-size: 0.875rem;
+}
+
+.pie {
+  margin-top: var(--espacio-5);
+  padding-top: var(--espacio-3);
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto-tenue);
+  font-size: 0.75rem;
+}
+
+.apagado {
+  display: grid;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-3);
+  padding: var(--espacio-4);
+  background-color: var(--color-superficie-tenue);
+  border: 1px dashed var(--color-borde);
+  border-radius: var(--radio-md);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+}
+
+.codigo {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8125rem;
+  color: var(--color-texto);
+}
+
+@media (max-width: 560px) {
+  .panel {
+    padding: var(--espacio-4);
+  }
+}

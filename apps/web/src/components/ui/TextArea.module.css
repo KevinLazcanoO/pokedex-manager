@@ -1,0 +1,52 @@
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.etiqueta {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.area {
+  width: 100%;
+  min-height: 6rem;
+  padding: var(--espacio-3);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+
+  resize: vertical;
+  transition: border-color var(--transicion);
+}
+
+.area:hover {
+  border-color: var(--color-texto-tenue);
+}
+
+.conError {
+  border-color: var(--color-error);
+}
+
+.pie {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--espacio-3);
+  font-size: 0.8125rem;
+}
+
+.mensajeError {
+  color: var(--color-error);
+}
+
+.contador {
+  margin-left: auto;
+  color: var(--color-texto-tenue);
+  font-variant-numeric: tabular-nums;
+}
+
+.contadorPasado {
+  color: var(--color-error);
+  font-weight: 700;
+}

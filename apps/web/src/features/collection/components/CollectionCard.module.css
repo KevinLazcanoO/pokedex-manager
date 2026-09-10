@@ -1,0 +1,124 @@
+.tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--espacio-4);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-sm);
+  transition: border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+  border-color: color-mix(in srgb, var(--color-primario) 40%, var(--color-borde));
+  box-shadow: var(--sombra-md);
+}
+
+.superior {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--espacio-2);
+}
+
+.numero {
+  color: var(--color-texto-tenue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.favorito {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: calc(var(--espacio-2) * -1) calc(var(--espacio-2) * -1) 0 0;
+  background: none;
+  border: none;
+  border-radius: var(--radio-sm);
+  color: var(--color-texto-tenue);
+  cursor: pointer;
+  transition: color var(--transicion), transform var(--transicion);
+}
+
+.favorito:hover {
+  color: var(--color-favorito);
+  transform: scale(1.15);
+}
+
+.favoritoActivo {
+  color: var(--color-favorito);
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-2);
+  text-align: center;
+}
+
+.imagen {
+  width: 88px;
+  height: 88px;
+  background-color: var(--color-superficie-tenue);
+  border-radius: var(--radio-completo);
+  image-rendering: pixelated;
+}
+
+.apodo {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+.especie {
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+  text-transform: capitalize;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-1);
+}
+
+.notas {
+  margin-top: var(--espacio-3);
+  padding: var(--espacio-2) var(--espacio-3);
+  background-color: var(--color-superficie-tenue);
+  border-radius: var(--radio-md);
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fecha {
+  margin-top: var(--espacio-3);
+  color: var(--color-texto-tenue);
+  font-size: 0.75rem;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin-top: auto;
+  padding-top: var(--espacio-4);
+}
+
+.acciones > * {
+  flex: 1 1 auto;
+}
+
+.acciones > * {
+  padding-left: var(--espacio-3);
+  padding-right: var(--espacio-3);
+}

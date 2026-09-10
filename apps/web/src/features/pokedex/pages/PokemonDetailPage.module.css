@@ -1,0 +1,168 @@
+.volver {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  margin-bottom: var(--espacio-4);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.volver:hover {
+  color: var(--color-texto);
+}
+
+.tarjeta {
+  display: grid;
+  gap: var(--espacio-6);
+  padding: var(--espacio-6);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-sm);
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+}
+
+.retrato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-4);
+}
+
+.artwork {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in srgb, var(--color-primario) 12%, transparent),
+    transparent 70%
+  );
+}
+
+.numero {
+  color: var(--color-texto-tenue);
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.nombre {
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-3);
+}
+
+.datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-5);
+  margin-top: var(--espacio-5);
+}
+
+.dato dt {
+  color: var(--color-texto-tenue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.dato dd {
+  margin: var(--espacio-1) 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.capitalizado {
+  text-transform: capitalize;
+}
+
+.seccion {
+  margin-top: var(--espacio-6);
+}
+
+.tituloSeccion {
+  margin-bottom: var(--espacio-3);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-texto-tenue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.estadisticas {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+.estadistica {
+  display: grid;
+  align-items: center;
+  gap: var(--espacio-3);
+  grid-template-columns: 7rem 3rem 1fr;
+}
+
+.nombreEstadistica {
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.valorEstadistica {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.barra {
+  height: 8px;
+  background-color: var(--color-superficie-tenue);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-completo);
+  overflow: hidden;
+}
+
+.relleno {
+  height: 100%;
+  background-color: var(--color-primario);
+  border-radius: var(--radio-completo);
+}
+
+.acciones {
+  margin-top: var(--espacio-6);
+}
+
+.capturado {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  color: var(--color-exito);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .tarjeta {
+    padding: var(--espacio-5) var(--espacio-4);
+    gap: var(--espacio-5);
+    grid-template-columns: 1fr;
+  }
+
+  .nombre {
+    font-size: 1.625rem;
+  }
+
+  .estadistica {
+    grid-template-columns: 5.5rem 2.5rem 1fr;
+  }
+}

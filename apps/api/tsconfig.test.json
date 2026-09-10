@@ -1,0 +1,13 @@
+{
+  // Vitest ejecuta los tests con esbuild, que borra los tipos sin mirarlos. Esta
+  // configuración existe para que `npm run typecheck` sí los revise.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false,
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["src"],
+  "exclude": []
+}

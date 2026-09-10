@@ -1,0 +1,72 @@
+.panel {
+  display: grid;
+  gap: var(--espacio-4);
+
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.tarjeta {
+  padding: var(--espacio-4) var(--espacio-5);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-sm);
+}
+
+.titulo {
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.numero {
+  margin-top: var(--espacio-2);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.destacado {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  margin-top: var(--espacio-3);
+}
+
+.miniatura {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  background-color: var(--color-superficie-tenue);
+  border-radius: var(--radio-completo);
+  image-rendering: pixelated;
+}
+
+.nombreDestacado {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.detalleDestacado {
+  color: var(--color-texto-tenue);
+  font-size: 0.8125rem;
+}
+
+.tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-2);
+  margin-top: var(--espacio-3);
+}
+
+.vacio {
+  margin-top: var(--espacio-3);
+  color: var(--color-texto-tenue);
+  font-size: 0.9375rem;
+}
