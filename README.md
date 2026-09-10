@@ -83,7 +83,6 @@ en el puerto 4000 y la interfaz en el 5173.
 **Interfaz**
 - Responsive real, verificado a 375 px
 - Tema claro y oscuro según la preferencia del sistema
-- Contraste conforme a WCAG AA (4.5:1) en todas las pantallas y ambos temas
 - Navegable por teclado, con enlace para saltar al contenido
 
 ---
@@ -233,8 +232,6 @@ comprueba que ese aviso sigue en el prompt.
 
 ## Decisiones técnicas
 
-Estas son las decisiones no obvias y el motivo de cada una.
-
 ### SQLite en lugar de PostgreSQL
 Quien evalúa el proyecto solo tiene que ejecutar `npm run setup`. Con Postgres
 haría falta un servidor corriendo o Docker. Prisma abstrae el motor, así que
@@ -245,19 +242,13 @@ Permite cachear las respuestas, normalizarlas (la PokéAPI devuelve JSON muy
 grande y anidado) y resolver la búsqueda. El frontend recibe justo lo que pinta
 y depende de una sola API en vez de dos.
 
-### Búsqueda construida sobre una API que no la tiene
-La PokéAPI no ofrece búsqueda por texto. El backend descarga **una sola vez** el
-índice de los 1025 nombres, lo cachea, filtra en memoria y solo pide el detalle
-de los 24 Pokémon de la página actual, en paralelo. Sin esto, buscar significaría
-miles de peticiones.
-
 ### La caché agrupa peticiones simultáneas
 `TtlCache` guarda también las promesas en vuelo, no solo los resultados. Si al
 pintar una página 24 tarjetas piden el mismo tipo a la vez, sale **una** petición
 y no 24.
 
-### Datos duplicados en la colección, a propósito
-Al capturar un Pokémon se copian su nombre, sprite, tipos y total de estadísticas
+### Datos duplicados en la colección
+Al capturar un Pokémon se copian su nombre, tipos y total de estadísticas
 en la fila. Es una desnormalización deliberada: la colección se ve completa
 aunque la PokéAPI esté caída, y listarla no dispara una petición externa por
 tarjeta. El precio es que esos datos no se actualizan si cambian en el origen,
@@ -273,19 +264,6 @@ El navegador siempre habla con su propio origen (`localhost:5173`) y Vite reenv�
 `/api` al backend. Para el navegador todo es la misma aplicación, así que la
 cookie viaja sola y no hay CORS que configurar.
 
-### El aislamiento entre usuarios está en el `WHERE`
-El `userId` va siempre dentro de la consulta a la base de datos, no en una
-comprobación posterior: es imposible leer por accidente los datos de otro. Y al
-intentar tocar una entrada ajena se responde **404 y no 403**, porque un 403
-confirmaría que ese identificador existe.
-
-### Filtrado de la colección en memoria
-SQLite no compara texto ignorando mayúsculas fuera de ASCII y no sabe consultar
-dentro del JSON de la columna `types`. Una colección personal tiene decenas de
-entradas, así que filtrar en memoria es correcto y mucho más legible. Si creciera
-a miles, la salida sería mover `types` a su propia tabla; solo cambiarían el
-servicio y el repositorio.
-
 ### El orden alfabético usa el nombre que se ve
 SQL solo puede ordenar por el nombre de la especie, así que un Pokémon apodado
 "Psico" aparecía colocado como "mewtwo": para quien mira la lista, desordenada.
@@ -297,34 +275,10 @@ funciona y recargar no pierde el contexto. **El retardo antifrenesí se aplica a
 la consulta, no a la URL**: así la URL es la única fuente de verdad y no hay que
 sincronizar estado en dos direcciones.
 
-### Una sola mutación optimista: el favorito
-Es la acción que más se repite y la que peor sienta con retraso. Capturar o
-borrar admiten una pequeña espera. La mutación parchea la caché, la restaura si
-el servidor falla y revalida al terminar.
-
 ### No se reintentan los errores 4xx
 Un 404 no se arregla repitiendo la petición. Además `networkMode: 'always'`
 evita que React Query pause los reintentos cuando el navegador se cree sin
 conexión, cosa que dejaba consultas cargando indefinidamente sin avisar.
-
-### Los iconos son Material Design Icons
-Se cargan desde `@mdi/js` importando cada icono por separado, así que el paquete
-se sacude en el build y solo entran los que se usan. Todos pasan por el
-componente `Icon`, que fija el tamaño relativo al texto y oculta a los lectores de
-pantalla los que solo acompañan a una etiqueta ya visible.
-
-### El modal usa el `<dialog>` nativo
-El navegador resuelve gratis lo difícil y fácil de olvidar: atrapar el foco,
-cerrar con Escape, ocultar el fondo a los lectores de pantalla y pintar el
-`::backdrop`. El cierre con Escape se intercepta (`cancel` + `preventDefault`)
-para que **React sea lo único que abre y cierra**: si el DOM se cerrara por su
-cuenta, React lo seguiría creyendo abierto y no se podría volver a abrir.
-
-### Colores separados por rol, no por tono
-El rojo como **fondo** debe contrastar con el texto blanco de encima; el rojo
-como **texto** debe contrastar con el fondo de debajo. Usar el mismo valor para
-ambas cosas era lo que hacía que los botones y los enlaces activos no llegaran al
-4.5:1. Los valores de los tokens están medidos, no elegidos a ojo.
 
 ---
 
